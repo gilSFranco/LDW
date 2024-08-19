@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Criando sua ficha:</h2>
+    <hr>
+    <h4>Pronto para começar?</h4>
+    <form action="{{url_for('chips')}}", method="POST">
+        <label for="nome">Nome do personagem: </label>
+        <input type="text" id="nome" name="nome">
+
+        <label for="classe">Classe: </label>
+        <input type="text" id="classe" name="classe">
+
+        <label for="raca">Raça: </label>
+        <input type="text" id="raca" name="raca">
+
+        <label for="tendencia">Tendência: </label>
+        <input type="text" id="tendencia" name="tendencia">
+
+        <label for="antecedente">Antecedente: </label>
+        <input type="text" id="antecedente" name="antecedente">
+
+        <input type="submit" value="Entrar">
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Classe</th>
+                <th scope="col">Raça</th>
+                <th scope="col">Tendência</th>
+                <th scope="col">Antecedente</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for personagem in personagens %}
+            <tr>
+                <td>{{personagem.nome}}</td>
+                <td>{{personagem.classe}}</td>
+                <td>{{personagem.raca}}</td>
+                <td>{{personagem.tendencia}}</td>
+                <td>{{personagem.antecedente}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+{% endblock content %}
