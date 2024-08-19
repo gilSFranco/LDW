@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bem-vindo ao nosso site! Aqui você pode ser quem quiser.</title>
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
+  </head>
+  <body>
     <header>
-        <h1 style="text-align: center;">The rounded table</h1>
-        <hr>
+      <ul class="nav">
+        <li>
+          <a href="/players"><h3>Jogadores</h3></a>
+        </li>
+        <li>
+            <a href="/"><h1>The rounded table</h1></a>
+        </li>
+        <li>
+          <a href="/chips"><h3>Fichas</h3></a>
+        </li>
+      </ul>
     </header>
 
-    {% block content %}
-    <!-- Aqui irá o conteúdo das outras páginas -->
-    {% endblock content %}
+    <main>
+      {% block content %}
+      <!-- Aqui irá o conteúdo das outras páginas -->
+      {% endblock content %}
+    </main>
 
     <footer>
-        <hr>
-        <p style="text-align: center;"> Todos os direitos reservados ®</p>
+      <p style="text-align: center">Todos os direitos reservados ®</p>
     </footer>
-    
-</body>
+  </body>
 </html>
