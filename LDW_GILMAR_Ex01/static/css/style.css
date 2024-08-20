@@ -26,6 +26,50 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    row-gap: 30px;
+}
+
+table{
+    margin-top: 30px;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    column-gap: 20px;
+}
+
+form div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 10px;
+}
+
+label{
+    margin-bottom: 5px;
+}
+
+button{
+    margin-top: 20px;
+}
+
+h3, h1{
+    color: #000;
+}
+
+h3{
+    font-weight: 100;
+}
+
+details ul{
+    list-style: none;
 }
 
 .nav{
@@ -38,6 +82,63 @@ main{
     column-gap: 40px;
 }
 
-h3, h1{
-    color: #000;
+.ficha{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    row-gap: 20px;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.btnCreate{
+    margin-top: 30px;
+
+    padding: 10px 20px 10px 20px;
+
+    width: 100%;
+}
+
+.listaPersonagens{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    row-gap: 20px;
+}
+
+.jogadores{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+h2, h4{
+    margin-bottom: 20px;
+}
+
+ol{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table, tr, td, th{
+    border-collapse: collapse;
+    border: 1px solid #000;
+
+    padding: 20px;
+}
+
+tr, td, th{
+    text-align: center;
 }
