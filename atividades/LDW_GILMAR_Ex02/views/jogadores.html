@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="personagens">
+        <h2>Estes são os personagens da mesa.</h2>
+        <div class="listaPersonagens">
+            <p>Aqui estão nossos heróis:</p>
+            {% for personagem in personagens %}
+                <details>
+                    <summary>{{personagem.nome}}</summary>
+                    <ul>
+                        <li>Classe - {{personagem.classe}}</li>
+                        <li>Raça - {{personagem.raca}}</li>
+                        <li>Tendência - {{personagem.tendencia}}</li>
+                        <li>Antecedente - {{personagem.antecedente}}</li>
+                    </ul>
+                </details>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="jogadores">
+        <p><strong>Quem está participando da mesa (jogador):</strong></p>
+        <ol>
+            {% for i in jogadores %}
+                <li>{{i}}</li>
+            {% endfor %}
+        </ol>
+        <h4>Quer participar? Coloque seu nome aqui.</h4>
+        <form action="{{url_for('players')}}", method="POST">
+            <label for="jogadores">Seu nome:</label>
+            <input type="text" id="jogadores" name="jogadores">
+            <input type="submit" value="Cadastrar" class="btnCreate">
+        </form>
+    </div>
+    
+{% endblock content %}

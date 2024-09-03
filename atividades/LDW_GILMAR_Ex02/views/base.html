@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bem-vindo ao nosso site! Aqui você pode ser quem quiser.</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
+  </head>
+  <body>
+    <header>
+      <ul class="nav">
+        <li>
+          <a href="{{url_for('players')}}"><h3>Jogadores</h3></a>
+        </li>
+        <li>
+            <a href="{{url_for('home')}}"><h1>The rounded table</h1></a>
+        </li>
+        <li>
+          <a href="{{url_for('chips')}}"><h3>Fichas</h3></a>
+        </li>
+      </ul>
+    </header>
+
+    <main>
+      {% block content %}
+      <!-- Aqui irá o conteúdo das outras páginas -->
+      {% endblock content %}
+    </main>
+
+    <footer>
+      <p style="text-align: center">Todos os direitos reservados ®</p>
+    </footer>
+  </body>
+</html>
