@@ -2,6 +2,95 @@
 
 {% block content %}
 
-    <h2>Esta é a Homepage.</h2>
+    <form action="" class="w-9/12 m-10 text-sm">
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                    First name
+                </label>
+                <input type="text" id="grid-first-name" placeholder="jane" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+            </div>
+
+            <div class="w-full md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                    Last name
+                </label>
+                <input type="text" id="grid-last-name" placeholder="Doe" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+            </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                    First name
+                </label>
+                <input type="text" id="grid-first-name" placeholder="jane" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+            </div>
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                    First name
+                </label>
+                <input type="text" id="grid-first-name" placeholder="jane" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+            </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                    First name
+                </label>
+                <input type="text" id="grid-first-name" placeholder="jane" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+            </div>
+        </div>
+    </form>
+
+    <table class="w-9/12 m-10 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3 rounded-tl-lg">
+                    Character name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Class
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Race
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Trend
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Background
+                </th>
+                <th colspan="2" class="text-center rounded-tr-lg">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white rounded-bl-lg">
+                    Senshi
+                </th>
+                <td class="px-6 py-4">
+                    Warrior
+                </td>
+                <td class="px-6 py-4">
+                    Dwarf
+                </td>
+                <td class="px-6 py-4">
+                    Neutral and Good
+                </td>
+                <td class="px-6 py-4">
+                    Guild Craftsman
+                </td>
+                <td class="px-6 py-4">
+                    <a href="" class="font-medium text-red-400">Delete</a>
+                </td>
+                <td class="px-6 py-4 rounded-br-lg">
+                    <a href="" class="font-medium text-amber-400">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 {% endblock content %}

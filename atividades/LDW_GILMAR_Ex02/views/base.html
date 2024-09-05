@@ -4,34 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bem-vindo ao nosso site! Aqui você pode ser quem quiser.</title>
+
     <link
       rel="stylesheet"
-      href="{{url_for('static', filename='css/style.css')}}"
+      href="{{url_for('static', filename='css/main.css')}}"
     />
   </head>
   <body>
-    <header>
-      <ul class="nav">
+    <header class="p-9">
+      <ul class="flex justify-center items-center gap-x-6">
         <li>
-          <a href="{{url_for('players')}}"><h3>Jogadores</h3></a>
+          <a href="{{url_for('players')}}"><h3 class="text-2xl font-light">Jogadores</h3></a>
         </li>
         <li>
-            <a href="{{url_for('home')}}"><h1>The rounded table</h1></a>
+            <a href="{{url_for('home')}}"><h1 class="text-4xl font-black">The rounded table</h1></a>
         </li>
         <li>
-          <a href="{{url_for('chips')}}"><h3>Fichas</h3></a>
+          <a href="{{url_for('chips')}}"><h3 class="text-2xl font-light">Fichas</h3></a>
         </li>
       </ul>
     </header>
 
-    <main>
+    <main class="w-full min-h-[calc(80vh-2.25rem)] flex justify-center items-center flex-col">
       {% block content %}
       <!-- Aqui irá o conteúdo das outras páginas -->
       {% endblock content %}
     </main>
 
-    <footer>
-      <p style="text-align: center">Todos os direitos reservados ®</p>
+    <footer class="p-9">
+      <p class="text-center">Todos os direitos reservados ®</p>
     </footer>
   </body>
 </html>

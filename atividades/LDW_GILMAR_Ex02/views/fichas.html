@@ -2,10 +2,6 @@
 {% block content %}
 
     <div class="ficha">
-        <div class="titulo">
-            <h2>Criando sua ficha:</h2>
-            <h4>Pronto para começar?</h4>
-        </div>
         <form action="{{url_for('chips')}}", method="POST">
             <div>
                 <label for="nome">Nome do personagem: </label>
@@ -36,7 +32,7 @@
         </form>
     </div>
 
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th scope="col">Nome</th>
