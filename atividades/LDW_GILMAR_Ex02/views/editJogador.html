@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block content %}
+
+<form action="{{url_for('editPlayer', id=editjogador.id)}}" class="w-7/12 m-10 text-sm" method="post">
+  <div class="mb-6">
+    <h1 class="font-bold text-2xl text-gray-800">🕹 Editando jogador</h1>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label
+        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        for="grid-city"
+      >
+        Seu nome
+      </label>
+      <input
+        id="grid-city"
+        name="nome"
+        type="text"
+        placeholder="Gilmar"
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        value="{{editjogador.nome}}"
+        required
+      />
+    </div>
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label
+        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        for="grid-state"
+      >
+        Idade
+      </label>
+      <input
+        id="grid-city"
+        name="idade"
+        type="number"
+        min="18"
+        placeholder="22"
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        value="{{editjogador.idade}}"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <button
+      class="dark:bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      type="submit"
+      onclick="return confirm('Confirma as alterações?')"
+    >
+      Atualizar personagem
+    </button>
+    <a
+      class="inline-block align-baseline font-bold text-sm text-gray-800 hover:text-gray-700"
+      href="{{url_for('players')}}"
+    >
+      Cancelar
+    </a>
+  </div>
+</form>
+
+{% endblock content %}

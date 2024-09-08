@@ -1,37 +1,153 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
-    <div class="personagens">
-        <h2>Estes são os personagens da mesa.</h2>
-        <div class="listaPersonagens">
-            <p>Aqui estão nossos heróis:</p>
-            {% for personagem in personagens %}
-                <details>
-                    <summary>{{personagem.nome}}</summary>
-                    <ul>
-                        <li>Classe - {{personagem.classe}}</li>
-                        <li>Raça - {{personagem.raca}}</li>
-                        <li>Tendência - {{personagem.tendencia}}</li>
-                        <li>Antecedente - {{personagem.antecedente}}</li>
-                    </ul>
-                </details>
-            {% endfor %}
-        </div>
+<div class="w-7/12 m-10 flex justify-center items-center flex-col">
+  <h1 class="font-bold text-3xl mb-6 text-gray-800">
+    🤹‍♂️ Quer participar da jogatina?
+  </h1>
+  <p class="text-justify mb-8 text-gray-700">
+    Deseja adentrar no mundo de D&D e se aventurar conosco? preencha o
+    formulário abaixo para se inscrever na nossa party e jogarmos juntos! Te
+    aguardo em Faerûn caro viajante.
+  </p>
+
+  <h1 class="font-bold text-3xl mb-6 text-gray-800 text-justify">
+    🧚‍♀️ Não sabe do que se trata Dungeons and Dragons (D&D)?
+  </h1>
+  <p class="text-justify mb-4 text-gray-700">
+    Você já imaginou um mundo onde sua imaginação é a única coisa que define
+    seus limites? Onde você pode ser um destemido guerreiro empunhando uma
+    espada lendária, um mago poderoso manipulando as forças da magia ou até
+    mesmo um ladino ágil que vive nas sombras? Esse é o universo de Dungeons &
+    Dragons (D&D), um jogo que vai muito além de regras e dados.
+  </p>
+  <p class="text-justify mb-4 text-gray-700">
+    Em D&D, você se torna parte de uma história épica, com aventuras que podem
+    levá-lo a explorar cavernas misteriosas, enfrentar criaturas fantásticas e
+    tomar decisões que impactam o destino de reinos inteiros. Tudo o que você
+    faz no jogo depende de suas escolhas e da criatividade do grupo ao seu
+    redor. A cada jogada de dado, você vive uma nova emoção, seja ao acertar um
+    golpe crítico em um dragão ou ao convencer um rei a se aliar à sua causa.
+  </p>
+  <p class="text-justify mb-4 text-gray-700">
+    Se você gosta de explorar, criar e viver histórias incríveis, Dungeons &
+    Dragons é o jogo que você estava esperando. É a chance de fugir da realidade
+    e mergulhar em um mundo onde tudo é possível!
+  </p>
+</div>
+
+<form action="{{url_for('players')}}" class="w-7/12 m-10 text-sm" method="post">
+  <div class="mb-6">
+    <h1 class="font-bold text-2xl text-gray-800">🕹 Jogadores</h1>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label
+        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        for="grid-city"
+      >
+        Seu nome
+      </label>
+      <input
+        id="grid-city"
+        name="nome"
+        type="text"
+        placeholder="Gilmar"
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        required
+      />
     </div>
 
-    <div class="jogadores">
-        <p><strong>Quem está participando da mesa (jogador):</strong></p>
-        <ol>
-            {% for i in jogadores %}
-                <li>{{i}}</li>
-            {% endfor %}
-        </ol>
-        <h4>Quer participar? Coloque seu nome aqui.</h4>
-        <form action="{{url_for('players')}}", method="POST">
-            <label for="jogadores">Seu nome:</label>
-            <input type="text" id="jogadores" name="jogadores">
-            <input type="submit" value="Cadastrar" class="btnCreate">
-        </form>
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label
+        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        for="grid-state"
+      >
+        Idade
+      </label>
+      <input
+        id="grid-city"
+        name="idade"
+        type="number"
+        min="18"
+        placeholder="22"
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        required
+      />
     </div>
-    
+  </div>
+
+  <div class="flex items-center justify-between">
+    <button
+      class="dark:bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      type="submit"
+    >
+      Cadastrar personagem
+    </button>
+    <button
+      class="inline-block align-baseline font-bold text-sm text-gray-800 hover:text-gray-700"
+      type="reset"
+    >
+      Limpar Campos
+    </button>
+  </div>
+</form>
+
+<table
+  class="w-7/12 m-10 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+>
+  <caption
+    class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800"
+  >
+    Jogadores da Mesa
+    <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+      Todos os jogadores cadastrados estarão armazenados aqui. Que a sorte
+      esteja ao seu lado.
+    </p>
+  </caption>
+  <thead
+    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+  >
+    <tr>
+      <th scope="col" class="px-6 py-3">Nome do Jogador</th>
+      <th scope="col" class="px-6 py-3">Idade</th>
+      <th colspan="2" class="text-center">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for jogadores in jogadoresdamesa.items %}
+    <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+      <th
+        scope="row"
+        class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white"
+      >
+        {{jogadores.nome}}
+      </th>
+      <td class="px-6 py-4">{{jogadores.idade}}</td>
+      <td class="px-6 py-4 flex justify-end">
+        <a href="{{url_for('players', id=jogadores.id)}}" class="font-medium text-red-400">Delete</a>
+      </td>
+      <td class="px-6 py-4">
+        <a href="{{url_for('editPlayer', id=jogadores.id)}}" class="font-medium text-amber-400">Edit</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p class="text-center">
+  {% if jogadoresdamesa.has_prev %}
+  <a href="{{url_for('players', page=jogadoresdamesa.prev_num)}}" class="flex items-center flex-row font-bold text-gray-800">
+    <i class="fa-solid fa-chevron-left text-sm mt-1.5 mr-1 font-bold text-gray-800"></i> 
+    anterior
+  </a>
+  {% endif %}
+  {% if jogadoresdamesa.has_next %}
+  <a href="{{url_for('players', page=jogadoresdamesa.next_num)}}" class="flex items-center flex-row font-bold text-gray-800">
+    próximo
+    <i class="fa-solid fa-chevron-right text-sm mt-1.5 ml-1 font-bold text-gray-800"></i>
+  </a>
+  {% endif %}
+</p>
+
 {% endblock content %}

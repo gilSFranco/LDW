@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% block content %}
+
+<table
+  class="w-fit mt-10 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+>
+  <caption
+    class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800 rounded-t-lg"
+  >
+    Seus personagens - Caracteristicas
+    <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+      Todos os seus personagens cadastrados estarão armazenados aqui, te
+      esperando para uma nova grande aventura.
+    </p>
+  </caption>
+  <thead
+    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+  >
+    <tr>
+      <th scope="col" class="px-4 py-3">Nome</th>
+      <th scope="col" class="px-4 py-3">Classe</th>
+      <th scope="col" class="px-4 py-3">Antecedente</th>
+      <th scope="col" class="px-4 py-3">Raça</th>
+      <th scope="col" class="px-4 py-3">Tendência</th>
+      <th scope="col" class="px-4 py-3">Ver mais</th>
+      <th scope="col" class="px-4 py-3">Força</th>
+      <th scope="col" class="px-4 py-3">Destreza</th>
+      <th scope="col" class="px-4 py-3">Constituição</th>
+      <th scope="col" class="px-4 py-3">Inteligência</th>
+      <th scope="col" class="px-4 py-3">Sabedoria</th>
+      <th scope="col" class="px-4 py-3">Carisma</th>
+      <th colspan="2" class="text-center">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+        <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white rounded-bl-lg"
+          >
+            {{fichacompleta.nome}}
+          </th>
+          <td class="px-4 py-4">{{fichacompleta.classe}}</td>
+          <td class="px-4 py-4">{{fichacompleta.antecedente}}</td>
+          <td class="px-4 py-4">{{fichacompleta.raca}}</td>
+          <td class="px-4 py-4">{{fichacompleta.tendencia}}</td>
+          <td class="px-4 py-4">{{fichacompleta.forca}}</td>
+          <td class="px-4 py-4">{{fichacompleta.destreza}}</td>
+          <td class="px-4 py-4">{{fichacompleta.constituicao}}</td>
+          <td class="px-4 py-4">{{fichacompleta.inteligencia}}</td>
+          <td class="px-4 py-4">{{fichacompleta.sabedoria}}</td>
+          <td class="px-4 py-4">{{fichacompleta.carisma}}</td>
+          <td class="px-4 py-4">
+            <a href="{{url_for('chips', id=fichacompleta.id)}}" class="font-medium text-red-400">Delete</a>
+          </td>
+          <td class="px-6 py-4 rounded-br-lg">
+            <a href="{{url_for('editChip', id=fichacompleta.id)}}" class="font-medium text-amber-400">Edit</a>
+          </td>
+        </tr>
+    </tr>
+  </tbody>
+</table>
+
+<div class="w-7/12 mt-10 flex items-center justify-center">
+    <a
+      class="inline-block align-baseline font-bold text-sm text-gray-800 hover:text-gray-700"
+      href="{{url_for('chips')}}"
+    >
+      Voltar
+    </a>
+</div>
+
+{% endblock content %}

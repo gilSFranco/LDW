@@ -1,121 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="w-7/12 m-10 flex justify-center items-center flex-col">
-  <h1 class="font-bold text-3xl mb-6 text-gray-800">
-    🎲 Como fazer minha ficha?
-  </h1>
-  <p class="text-justify text-gray-700">
-    Você tem <b>27 pontos</b> para gastar em seus <b>valores de habilidade</b>.
-    O custo de cada valor de habilidade é mostrado na tabela
-    <b>Custo de Pontos de Habilidades</b>. Por exemplo, um valor <b>14</b> custa
-    <b>7 pontos</b>. Usando este método, <b>15</b> será o valor de habilidade
-    <b>mais alto</b> que você pode conseguir inicialmente, antes de aplicar as
-    melhorias raciais. Você <b>não</b> pode ter uma habilidade
-    <b>menor que 8</b>.
-  </p>
-
-  <div class="w-full flex flex-row items-center justify-around">
-    <table
-      class="my-16 w-fit text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-    >
-      <thead
-        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-      >
-        <tr>
-          <th scope="col" class="px-6 py-3 rounded-tl-lg text-center">Valor</th>
-          <th scope="col" class="px-6 py-3 rounded-tr-lg text-center">Custo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white text-center"
-          >
-            8
-          </th>
-          <td class="px-6 py-4 text-center">0</td>
-        </tr>
-        <tr class="bg-white dark:bg-gray-700 dark:border-gray-700">
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white text-center"
-          >
-            9
-          </th>
-          <td class="px-6 py-4 text-center">1</td>
-        </tr>
-        <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white text-center"
-          >
-            10
-          </th>
-          <td class="px-6 py-4 text-center">2</td>
-        </tr>
-        <tr class="bg-white dark:bg-gray-700 dark:border-gray-700">
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white text-center"
-          >
-            11
-          </th>
-          <td class="px-6 py-4 text-center">3</td>
-        </tr>
-        <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white text-center"
-          >
-            12
-          </th>
-          <td class="px-6 py-4 text-center">4</td>
-        </tr>
-        <tr class="bg-white dark:bg-gray-700 dark:border-gray-700">
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white text-center"
-          >
-            13
-          </th>
-          <td class="px-6 py-4 text-center">5</td>
-        </tr>
-        <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white text-center"
-          >
-            14
-          </th>
-          <td class="px-6 py-4 text-center">7</td>
-        </tr>
-        <tr class="bg-white dark:bg-gray-700 dark:border-gray-700">
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white rounded-bl-lg text-center"
-          >
-            15
-          </th>
-          <td class="px-6 py-4 rounded-br-lg text-center">9</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <img src="/static/imgs/download.jfif" class="w-1/2" alt="" />
-  </div>
-
-  <p class="text-justify text-gray-700">
-    O <b>valor</b> são os pontos de habilidade, eles determinam a
-    <b>força, destreza ou sabedoria</b> do seu personagem. Agora, o
-    <b>custo</b> se refere ao quanto certa quantidade de pontos de habilidade
-    valem. Por exemplo, o <b>valor 8</b> custa <b>0 pontos</b>, o que significa
-    que você começa com 8 em todas as habilidades. Além disso, também significa
-    que <b>ainda</b> tem <b>27 pontos</b> para gastar.
-  </p>
-</div>
-
-<form action="{{url_for('chips')}}" method="post" class="w-7/12 m-10 text-sm">
+<form
+  action="{{url_for('editChip', id=editficha.id)}}"
+  method="post"
+  class="w-7/12 m-10 text-sm"
+>
   <div class="mb-6">
     <h1 class="font-bold text-2xl text-gray-800">💇‍♂️ Caracteristicas</h1>
   </div>
@@ -134,6 +23,7 @@
         id="grid-first-name"
         placeholder="Milo Cata-cascalho"
         class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        value="{{editficha.nome}}"
         required
       />
     </div>
@@ -152,6 +42,11 @@
           name="classe"
           required
         >
+          <optgroup label="Sua classe">
+            <option value="{{editficha.classe}}" selected>
+              {{editficha.classe}}
+            </option>
+          </optgroup>
           <option>Bárbaro</option>
           <option>Bardo</option>
           <option>Clérigo</option>
@@ -197,6 +92,11 @@
           name="antecedente"
           required
         >
+          <optgroup label="Seu antecedente">
+            <option value="{{editficha.antecedente}}" selected>
+              {{editficha.antecedente}}
+            </option>
+          </optgroup>
           <option>Acólito</option>
           <option>Criminoso</option>
           <option>Artista</option>
@@ -239,6 +139,11 @@
           name="raca"
           required
         >
+          <optgroup label="Sua raça">
+            <option value="{{editficha.raca}}" selected>
+              {{editficha.raca}}
+            </option>
+          </optgroup>
           <optgroup label="Anão">
             <option>Anão</option>
             <option>Anão da Colina</option>
@@ -296,6 +201,11 @@
           name="tendencia"
           required
         >
+          <optgroup label="Sua tendência">
+            <option value="{{editficha.tendencia}}" selected>
+              {{editficha.tendencia}}
+            </option>
+          </optgroup>
           <optgroup label="Leal">
             <option>Leal e Bom</option>
             <option>Leal e Neutro</option>
@@ -349,6 +259,7 @@
         max="15"
         placeholder="Entre 8 e 15"
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        value="{{editficha.forca}}"
         required
       />
     </div>
@@ -368,6 +279,7 @@
         max="15"
         placeholder="Entre 8 e 15"
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        value="{{editficha.destreza}}"
         required
       />
     </div>
@@ -387,6 +299,7 @@
         min="8"
         max="15"
         placeholder="Entre 8 e 15"
+        value="{{editficha.constituicao}}"
         required
       />
     </div>
@@ -407,6 +320,7 @@
         max="15"
         placeholder="Entre 8 e 15"
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        value="{{editficha.inteligencia}}"
         required
       />
     </div>
@@ -426,6 +340,7 @@
         max="15"
         placeholder="Entre 8 e 15"
         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        value="{{editficha.sabedoria}}"
         required
       />
     </div>
@@ -445,6 +360,7 @@
         min="8"
         max="15"
         placeholder="Entre 8 e 15"
+        value="{{editficha.carisma}}"
         required
       />
     </div>
@@ -455,80 +371,15 @@
       class="dark:bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
       type="submit"
     >
-      Cadastrar personagem
+      Atualizar personagem
     </button>
-    <button
+    <a
       class="inline-block align-baseline font-bold text-sm text-gray-800 hover:text-gray-700"
-      type="reset"
+      href="{{url_for('chips')}}"
     >
-      Limpar Campos
-    </button>
+      Cancelar
+    </a>
   </div>
 </form>
-
-<table
-  class="w-7/12 mt-10 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
->
-  <caption
-    class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800"
-  >
-    Seus personagens - Caracteristicas
-    <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-      Todos os seus personagens cadastrados estarão armazenados aqui, te
-      esperando para uma nova grande aventura.
-    </p>
-  </caption>
-  <thead
-    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-  >
-    <tr>
-      <th scope="col" class="px-6 py-3">Nome</th>
-      <th scope="col" class="px-6 py-3">Classe</th>
-      <th scope="col" class="px-6 py-3">Antecedente</th>
-      <th scope="col" class="px-6 py-3">Raça</th>
-      <th scope="col" class="px-6 py-3">Tendência</th>
-      <th scope="col" class="px-6 py-3">Ver mais</th>
-      <th colspan="2" class="text-center">Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for personagem in personagensdamesa.items %}
-    <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
-      <th
-        scope="row"
-        class="px-6 py-4 font-medium text-gray-900 whitespacing-nowrap dark:text-white"
-      >
-        {{personagem.nome}}
-      </th>
-      <td class="px-6 py-4">{{personagem.classe}}</td>
-      <td class="px-6 py-4">{{personagem.antecedente}}</td>
-      <td class="px-6 py-4">{{personagem.raca}}</td>
-      <td class="px-6 py-4">{{personagem.tendencia}}</td>
-      <td class="px-6 py-4"><a href="{{url_for('findChipById', id=personagem.id)}}">Clique aqui</a></td>
-      <td class="px-6 py-4">
-        <a href="{{url_for('chips', id=personagem.id)}}" class="font-medium text-red-400">Delete</a>
-      </td>
-      <td class="px-6 py-4">
-        <a href="{{url_for('editChip', id=personagem.id)}}" class="font-medium text-amber-400">Edit</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-
-<p class="text-center"></p>
-  {% if personagensdamesa.has_prev %}
-  <a href="{{url_for('chips', page=personagensdamesa.prev_num)}}" class="flex items-center flex-row font-bold text-gray-800">
-    <i class="fa-solid fa-chevron-left text-sm mt-1.5 mr-1 font-bold text-gray-800"></i> 
-    anterior
-  </a>
-  {% endif %}
-  {% if personagensdamesa.has_next %}
-  <a href="{{url_for('chips', page=personagensdamesa.next_num)}}" class="flex items-center flex-row font-bold text-gray-800">
-    próximo
-    <i class="fa-solid fa-chevron-right text-sm mt-1.5 ml-1 font-bold text-gray-800"></i>
-  </a>
-  {% endif %}
-</p>
 
 {% endblock content %}
