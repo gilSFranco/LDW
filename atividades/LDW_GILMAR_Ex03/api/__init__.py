@@ -11,4 +11,4 @@ api = Api(app)
 mongo = PyMongo(app)
 marshmallow = Marshmallow(app)
 
-from .resources import BoardGame 
+from .resources import BoardGameResource
