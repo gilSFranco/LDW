@@ -9,8 +9,9 @@ I am a FATEC student from the city of Registro and I was given the task of build
 #### Return all sheets
 
 ```http
-  GET /boardgames
+GET /boardgames
 ```
+
 #### Return example
 
 ```json
@@ -36,7 +37,7 @@ I am a FATEC student from the city of Registro and I was given the task of build
 #### Returns one sheet
 
 ```http
-  GET /boardgame/${id}
+GET /boardgame/${id}
 ```
 
 | Parâmetro   | Tipo       | Descrição                                   |
@@ -46,7 +47,7 @@ I am a FATEC student from the city of Registro and I was given the task of build
 #### Register a sheet
 
 ```http
-  POST /boardgames
+POST /boardgames
 ```
 
 #### POST request examples
@@ -159,7 +160,7 @@ I am a FATEC student from the city of Registro and I was given the task of build
 #### Deletes one sheet
 
 ```http
-  DELETE /boardgame/${id}
+DELETE /boardgame/${id}
 ```
 
 | Parâmetro   | Tipo       | Descrição                                   |
@@ -169,7 +170,7 @@ I am a FATEC student from the city of Registro and I was given the task of build
 #### Updates one sheet
 
 ```http
-  PUT /boardgame/${id}
+PUT /boardgame/${id}
 ```
 
 | Parâmetro   | Tipo       | Descrição                                   |
